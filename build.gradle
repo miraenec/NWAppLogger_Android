@@ -23,8 +23,8 @@ android {
     defaultConfig {
         minSdkVersion 20
         targetSdkVersion 29
-        versionCode 304
-        versionName "3.0.4"
+        versionCode 305
+        versionName "3.0.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,14 +48,6 @@ android {
 }
 
 dependencies {
-    repositories {
-        google()
-        jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
-    }
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
@@ -69,7 +61,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.apache.httpcomponents:httpcore:4.4.4'
     implementation 'com.android.installreferrer:installreferrer:1.0'
-    implementation 'com.github.hlkim:NWAppLogger_Android:3.0.4'
+    implementation 'com.github.hlkim:NWAppLogger_Android:3.0.5'
 }
 
 //task deleteOldJar(type:Delete) {
