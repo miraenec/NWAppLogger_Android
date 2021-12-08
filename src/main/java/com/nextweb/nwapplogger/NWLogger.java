@@ -22,7 +22,6 @@ import java.util.Map;
 
 public class NWLogger extends INWAppLogger {
 
-    private static volatile NWLogger uniqueInstance;
     private Context mContext;
     private static String HTTP_URL = "";
     private static String xtUid = "";
@@ -45,19 +44,6 @@ public class NWLogger extends INWAppLogger {
     private Runnable mRunnable;
 
     protected NWLogger() {
-    }
-
-    public static NWLogger getInstance() {
-        if (uniqueInstance == null) {
-            Class var0 = NWLogger.class;
-            synchronized(NWLogger.class) {
-                if (uniqueInstance == null) {
-                    uniqueInstance = new NWLogger();
-                }
-            }
-        }
-
-        return uniqueInstance;
     }
 
     private void initDefaultInfo(Activity act) {

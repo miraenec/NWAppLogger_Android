@@ -10,8 +10,23 @@ import java.util.Map;
  */
 public class NWAppLogger extends NWLogger {
 
+	private static volatile NWAppLogger uniqueInstance;
+
 	private NWAppLogger() {
 		super();
+	}
+
+	public static NWAppLogger getInstance() {
+		if (uniqueInstance == null) {
+			Class var0 = NWAppLogger.class;
+			synchronized(NWAppLogger.class) {
+				if (uniqueInstance == null) {
+					uniqueInstance = new NWAppLogger();
+				}
+			}
+		}
+
+		return uniqueInstance;
 	}
 
 	@Override
