@@ -8,8 +8,14 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.hlkim'
 
 android {
@@ -19,7 +25,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 303
-        versionName "3.0.3"
+        versionName "3.0.4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -47,7 +53,7 @@ dependencies {
         google()
         jcenter()
         maven {
-            url 'https://maven.google.com/', "https://jitpack.io"
+            url 'https://maven.google.com/'
             name 'Google'
         }
     }
@@ -64,7 +70,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.apache.httpcomponents:httpcore:4.4.4'
     implementation 'com.android.installreferrer:installreferrer:1.0'
-    implementation 'com.github.jitpack:android-example:1.0.1'
+    implementation 'com.github.hlkim:NWAppLogger_Android:3.0.4'
 }
 
 //task deleteOldJar(type:Delete) {
