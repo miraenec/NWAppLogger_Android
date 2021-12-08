@@ -1,10 +1,14 @@
+apply plugin: 'com.android.library'
+apply plugin: 'android-maven'
+group = 'com.github.hlkim'
+
 buildscript {
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:4.1.1'
     }
 }
 
@@ -15,9 +19,6 @@ allprojects {
     }
 }
 
-apply plugin: 'com.android.library'
-group = 'com.github.hlkim'
-
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
@@ -25,7 +26,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 303
-        versionName "3.0.4"
+        versionName "3.0.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -70,7 +71,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.apache.httpcomponents:httpcore:4.4.4'
     implementation 'com.android.installreferrer:installreferrer:1.0'
-    implementation 'com.github.hlkim:NWAppLogger_Android:3.0.4'
+    implementation 'com.github.hlkim:NWAppLogger_Android:3.0.3'
 }
 
 //task deleteOldJar(type:Delete) {
