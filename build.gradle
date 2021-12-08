@@ -16,8 +16,10 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
     }
 }
 
@@ -42,10 +44,7 @@ dependencies {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        maven { url 'https://maven.google.com/' }
         maven { url "https://jitpack.io" }
     }
     implementation fileTree(dir: 'libs', include: ['*.jar'])
