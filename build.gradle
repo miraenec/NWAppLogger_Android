@@ -9,6 +9,8 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.hlkim'
 
 android {
     compileSdkVersion 28
@@ -16,8 +18,8 @@ android {
     defaultConfig {
         minSdkVersion 20
         targetSdkVersion 28
-        versionCode 302
-        versionName "3.0.2"
+        versionCode 303
+        versionName "3.0.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,7 +47,7 @@ dependencies {
         google()
         jcenter()
         maven {
-            url 'https://maven.google.com/'
+            url 'https://maven.google.com/', "https://jitpack.io"
             name 'Google'
         }
     }
@@ -62,17 +64,18 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.apache.httpcomponents:httpcore:4.4.4'
     implementation 'com.android.installreferrer:installreferrer:1.0'
+    implementation 'com.github.jitpack:android-example:1.0.1'
 }
 
-task deleteOldJar(type:Delete) {
-    delete 'release/nwapplogger3.0.2.jar'
-}
-
-task exportJar(type:Copy) {
-    from('build/intermediates/packaged-classes/release/')
-    into('release/')
-    include('classes.jar')
-    rename('classes.jar', 'nwapplogger3.0.2.jar')
-}
-
-exportJar.dependsOn(deleteOldJar, build)
+//task deleteOldJar(type:Delete) {
+//    delete 'release/nwapplogger3.0.2.jar'
+//}
+//
+//task exportJar(type:Copy) {
+//    from('build/intermediates/packaged-classes/release/')
+//    into('release/')
+//    include('classes.jar')
+//    rename('classes.jar', 'nwapplogger3.0.2.jar')
+//}
+//
+//exportJar.dependsOn(deleteOldJar, build)
