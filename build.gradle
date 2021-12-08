@@ -10,6 +10,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath "com.github.dcendents:android-maven-gradle-plugin:${ANDROID_MAVEN_GRADLE_PLUGIN_VERSION}"
     }
 }
 
@@ -62,7 +63,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.apache.httpcomponents:httpcore:4.4.4'
     implementation 'com.android.installreferrer:installreferrer:1.0'
-    releaseImplementation 'com.github.hlkim:NWAppLogger_Android:3.0.5'
 }
 
 task sourcesJar(type: Jar) {
