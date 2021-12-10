@@ -19,7 +19,7 @@ public class NWAppLogger extends NWLogger {
 	public static NWAppLogger getInstance() {
 		if (uniqueInstance == null) {
 			Class var0 = NWAppLogger.class;
-			synchronized(NWAppLogger.class) {
+			synchronized(var0) {
 				if (uniqueInstance == null) {
 					uniqueInstance = new NWAppLogger();
 				}

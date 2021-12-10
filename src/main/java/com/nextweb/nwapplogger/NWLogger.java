@@ -169,6 +169,11 @@ public class NWLogger extends INWAppLogger {
     }
 
     private String getDefaultParams(Activity act) {
+
+        if (mContext == null) {
+            mContext = act;
+        }
+
         Map<String, String> bindMap = new HashMap();
         bindMap.put("osType", "android");
 
