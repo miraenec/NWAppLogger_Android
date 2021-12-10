@@ -68,16 +68,3 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
 }
 artifacts.add('archives', sourcesJar)
-
-//task deleteOldJar(type:Delete) {
-//    delete 'release/nwapplogger3.0.2.jar'
-//}
-//
-//task exportJar(type:Copy) {
-//    from('build/intermediates/packaged-classes/release/')
-//    into('release/')
-//    include('classes.jar')
-//    rename('classes.jar', 'nwapplogger3.0.2.jar')
-//}
-
-//exportJar.dependsOn(deleteOldJar, build)
