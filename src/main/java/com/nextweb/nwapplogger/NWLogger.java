@@ -84,7 +84,9 @@ public class NWLogger extends INWAppLogger {
 
                             referrerClient.endConnection();
 
-                            mCallback.onGoogleReferrerData(true);
+                            if (mCallback != null) {
+                                mCallback.onGoogleReferrerData(true);
+                            }
 
                         } catch (RemoteException e) {
                             e.printStackTrace();
@@ -94,7 +96,9 @@ public class NWLogger extends INWAppLogger {
                         // API not available on the current Play Store app
                     case InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE:
                         // Connection could'nt be established
-                        mCallback.onGoogleReferrerData(false);
+                        if (mCallback != null) {
+                            mCallback.onGoogleReferrerData(false);
+                        }
                         break;
                 }
             }
@@ -107,7 +111,9 @@ public class NWLogger extends INWAppLogger {
         mRunnable = new Runnable() {
             @Override
             public void run() {
-                mCallback.onGoogleReferrerData(false);
+                if (mCallback != null) {
+                    mCallback.onGoogleReferrerData(false);
+                }
             }
         };
         mHandler = new Handler();
@@ -259,7 +265,13 @@ public class NWLogger extends INWAppLogger {
             this.isDebug = isDebug;
             this.HTTP_URL = url;
 
-            mCallback = (OnGoogleReferrerDataCallback) act;
+            try {
+                if (act.getClass().getName().contains("OnGoogleReferrerDataCallback")) {
+                    mCallback = (OnGoogleReferrerDataCallback) act;
+                }
+            } catch (Error e) {
+
+            }
 
             // 앱 실행 횟수
             appInfoUtil.addAppRunCount(act);
