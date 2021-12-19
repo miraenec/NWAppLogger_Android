@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -16,7 +15,6 @@ import android.view.Display;
 
 import androidx.core.content.ContextCompat;
 
-import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.Locale;
 import java.util.UUID;
