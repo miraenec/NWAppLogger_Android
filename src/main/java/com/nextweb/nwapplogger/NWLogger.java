@@ -286,10 +286,6 @@ public class NWLogger extends INWAppLogger {
             // 리퍼러 정보 가져오기
             tryToConnectReferrer(act);
 
-            if (xtVid == null || "".equalsIgnoreCase(xtVid)) {
-                deviceInfoUtil.getUniqueADID(act);
-            }
-
             if (mDbOpenHelper != null && mDbOpenHelper.open(act) != null) {
                 this.sendTempLogs("HTTP");
             }

@@ -14,9 +14,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Display;
 
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -48,27 +46,10 @@ class DeviceInfoUtil {
 		return width + "x" + height;
 	}
 
-	void getUniqueADID(final Activity act) {
-
-		AsyncTask.execute(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(act);
-					if (!advertisingIdInfo.isLimitAdTrackingEnabled()) {
-						NWLogger.setVid(advertisingIdInfo.getId());
-					}
-				} catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	String getUniqueDeviceId(Activity act) {
 		try {
 			TelephonyManager tm = (TelephonyManager) act.getSystemService(Context.TELEPHONY_SERVICE);
-			if (ActivityCompat.checkSelfPermission(act, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+			if (ContextCompat.checkSelfPermission(act, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
 				return Constants.UnknownDevice;
 			}
