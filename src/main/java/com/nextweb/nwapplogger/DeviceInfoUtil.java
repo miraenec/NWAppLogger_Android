@@ -14,8 +14,6 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Display;
 
-import androidx.core.app.ActivityCompat;
-
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
