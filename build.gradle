@@ -55,6 +55,9 @@ dependencies {
     implementation 'com.squareup.okio:okio:1.13.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'org.apache.httpcomponents:httpcore:4.4.4'
+    implementation ('com.google.android.gms:play-services-ads-identifier:17.1.0') {
+        force = true;
+    }
     implementation 'com.android.installreferrer:installreferrer:1.0'
 }
 

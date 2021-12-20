@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -15,6 +16,11 @@ import android.view.Display;
 
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.Locale;
 import java.util.UUID;
@@ -42,6 +48,23 @@ class DeviceInfoUtil {
 		int height = size.y;
 
 		return width + "x" + height;
+	}
+
+	void getUniqueADID(final Activity act) {
+
+		AsyncTask.execute(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(act);
+					if (!advertisingIdInfo.isLimitAdTrackingEnabled()) {
+						NWLogger.setVid(advertisingIdInfo.getId());
+					}
+				} catch (IOException | GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	String getUniqueDeviceId(Activity act) {
